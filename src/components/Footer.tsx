@@ -33,7 +33,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6">
           {/* Brand & About - Takes more space */}
           <div className="sm:col-span-2 lg:col-span-5">
-            <a href="#" className="inline-flex items-center gap-3 mb-4 group">
+            <Link to="/" className="inline-flex items-center gap-3 mb-4 group">
               <div className="w-11 h-11 rounded-full overflow-hidden ring-2 ring-primary/20 group-hover:ring-primary/40 transition-all">
                 <img src={profilePhoto} alt="Ahasan" className="w-full h-full object-cover object-top" />
               </div>
@@ -43,7 +43,7 @@ export const Footer = () => {
                 </span>
                 <span className="text-xs text-primary">Full Stack Developer</span>
               </div>
-            </a>
+            </Link>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-sm">
               Passionate about building scalable web applications with clean code and modern technologies.
             </p>
@@ -75,13 +75,13 @@ export const Footer = () => {
                 <ul className="space-y-1.5 sm:space-y-2.5">
                   {navLinks.map((link) => (
                     <li key={link.name}>
-                      <a
-                        href={link.href}
+                      <Link
+                        to={link.href}
                         className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group"
                       >
                         <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                         {link.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

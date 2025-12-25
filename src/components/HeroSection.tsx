@@ -96,7 +96,7 @@ export const HeroSection = () => {
               <span>Vue.js</span>
               <span className="text-primary">•</span>
               <span>REST APIs</span>
-              <span className="text-primary">���</span>
+              <span className="text-primary">•</span>
               <span>MySQL</span>
               <span className="text-primary">•</span>
               <span>Full-Stack Development</span>

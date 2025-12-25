@@ -47,7 +47,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/amamul-s-protfolio_3.0" future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <AnimatedRoutes />
         <WhatsAppButton />
       </BrowserRouter>

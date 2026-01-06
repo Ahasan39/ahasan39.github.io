@@ -676,7 +676,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 - **LinkedIn**: [Amamul Ahasan](https://www.linkedin.com/in/amamul-ahasn)
 - **Facebook**: [Ahasan Amamul](https://www.facebook.com/share/1E3xoyVnEK/)
 - **Email**: amamulahasanmizan71@gmail.com
-- **WhatsApp**: [+880 1580-088039](https://wa.me/8801580088039)
+- **WhatsApp**: [+880 1842299275](https://wa.me/8801842299275)
 
 ---
 

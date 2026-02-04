@@ -50,8 +50,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
-    <!-- Preload critical assets -->
-    <link rel="preload" href="/src/assets/profile-photo.jpg" as="image" type="image/jpeg" />
+    <!-- Load fonts asynchronously to prevent render blocking -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" /></noscript>
+    
+    <!-- Preload critical LCP image -->
+    <link rel="preload" href="/assets/profile-photo.webp" as="image" type="image/webp" fetchpriority="high" />
     
     <!-- Structured Data / JSON-LD -->
     <script type="application/ld+json">

@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { HeroAnimatedSection, motion, FloatingElement } from '@/components/ui/motion';
 import { OptimizedImage } from '@/components/OptimizedImage';
-import profilePhoto from '@/assets/profile-photo.jpg';
+import profilePhoto from '@/assets/profile-photo-optimized.jpg';
 import profilePhotoWebP from '@/assets/profile-photo.webp';
+import profilePhoto400w from '@/assets/profile-photo-400w.webp';
 
 export const HeroSection = () => {
   return (

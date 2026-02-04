@@ -7,6 +7,16 @@
     <meta name="theme-color" content="#0a0f1a" />
     <meta name="color-scheme" content="dark" />
     
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+      :root{--background:222 47% 6%;--foreground:210 40% 98%;--primary:172 66% 50%;--font-heading:'Sora',sans-serif;--font-body:'Inter',sans-serif}
+      *{margin:0;padding:0;box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{background:hsl(var(--background));color:hsl(var(--foreground));font-family:var(--font-body);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+      #root{min-height:100vh}
+      .gradient-text{background:linear-gradient(135deg,hsl(172 66% 50%),hsl(190 80% 45%));-webkit-background-clip:text;background-clip:text;color:transparent}
+    </style>
+    
     <!-- Google Analytics GA4 - Deferred for performance -->
     <script>
       // Defer GA4 loading until after critical rendering
@@ -68,8 +78,6 @@
     <!-- Load fonts asynchronously to prevent render blocking -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" /></noscript>
-    
-    <!-- Preload critical LCP image - will be replaced by Vite during build -->
     
     <!-- Structured Data / JSON-LD -->
     <script type="application/ld+json">

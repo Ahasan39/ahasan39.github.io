@@ -37,17 +37,16 @@ export const HeroSection = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <picture>
-                  <source srcSet={profilePhotoWebP} type="image/webp" />
-                  <img
-                    src={profilePhoto}
-                    alt="Amamul Ahasan"
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-                    fetchPriority="high"
-                    width={128}
-                    height={128}
-                  />
-                </picture>
+                <img
+                  src={profilePhotoWebP}
+                  alt="Amamul Ahasan"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                  fetchPriority="high"
+                  loading="eager"
+                  decoding="async"
+                  width={128}
+                  height={128}
+                />
               </motion.div>
               <motion.div
                 className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-primary flex items-center justify-center"

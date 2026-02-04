@@ -9,18 +9,29 @@
     
     <!-- Google Analytics GA4 - Deferred for performance -->
     <script>
+      // Defer GA4 loading until after critical rendering
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-EQCYKCE1GE');
       
-      // Load GA4 after page load
-      window.addEventListener('load', function() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EQCYKCE1GE';
-        document.head.appendChild(script);
+      // Load GA4 after 3 seconds or on user interaction
+      var gaLoaded = false;
+      function loadGA() {
+        if (!gaLoaded) {
+          gaLoaded = true;
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EQCYKCE1GE';
+          document.head.appendChild(script);
+        }
+      }
+      
+      // Load on interaction or after 3 seconds
+      ['scroll', 'click', 'mousemove', 'touchstart'].forEach(function(event) {
+        window.addEventListener(event, loadGA, { once: true, passive: true });
       });
+      setTimeout(loadGA, 3000);
     </script>
     
     <!-- SEO Meta Tags -->
@@ -45,6 +56,10 @@
     
     <!-- Canonical -->
     <link rel="canonical" href="https://ahasan39.github.io" />
+    
+    <!-- DNS Prefetch for third-party domains -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
     
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

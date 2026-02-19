@@ -4,11 +4,24 @@ import { useRef } from 'react';
 
 const experiences = [
   {
+    title: 'Full Stack Web Developer',
+    company: 'Webleez Limited',
+    location: 'Dhaka, Bangladesh',
+    period: 'January 2026 – Present',
+    current: true,
+    responsibilities: [
+      'Developing and maintaining full-stack web applications using modern technologies',
+      'Collaborating with cross-functional teams to deliver high-quality software solutions',
+      'Implementing responsive and user-friendly interfaces with optimal performance',
+      'Contributing to code reviews and maintaining best practices in software development',
+    ],
+  },
+  {
     title: 'Web Developer',
     company: 'Quick Tech Solution',
     location: 'Chittagong, Bangladesh',
     period: '2024 – 2025',
-    current: true,
+    current: false,
     responsibilities: [
       'Developed and maintained web applications for clients, ensuring high functionality and performance',
       'Managed technical documentation and maintained project documentation for clarity and team efficiency',

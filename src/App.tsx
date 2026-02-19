@@ -7,6 +7,7 @@ import { AnimatePresence } from "@/components/ui/motion";
 import { lazy, Suspense } from "react";
 import Index from "./pages/Index";
 import { WhatsAppButton } from "./components/WhatsAppButton";
+import { BackToTop } from "./components/BackToTop";
 
 // Lazy load non-critical pages
 const About = lazy(() => import("./pages/About"));
@@ -65,6 +66,7 @@ const App = () => (
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <AnimatedRoutes />
         <WhatsAppButton />
+        <BackToTop />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

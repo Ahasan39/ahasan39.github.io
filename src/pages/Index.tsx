@@ -13,7 +13,7 @@ import { Footer } from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden w-full">
       {/* Skip to main content link for accessibility */}
       <a 
         href="#main-content" 

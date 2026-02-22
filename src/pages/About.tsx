@@ -74,8 +74,8 @@ const About = () => {
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
-        <div className="absolute top-1/2 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute top-1/2 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
         
         <div className="container-custom relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -88,24 +88,24 @@ const About = () => {
               <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
                 About Me
               </span>
-              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift">
+              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift break-words">
                 Amamul Ahasan
               </h1>
-              <p className="text-xl text-primary font-medium mb-6">
+              <p className="text-lg sm:text-xl text-primary font-medium mb-6">
                 Full Stack Web Developer
               </p>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-8">
                 A highly motivated and passionate Computer Science and Engineering graduate from Premier University, Chittagong. 
                 I bring strong technical knowledge, problem-solving ability, and creativity to every project I undertake.
               </p>
               
-              <div className="flex flex-wrap gap-4 mb-8">
+              <div className="flex flex-wrap gap-3 sm:gap-4 mb-8 text-sm sm:text-base">
                 <div className="flex items-center gap-2 text-muted-foreground">
-                  <MapPin className="w-5 h-5 text-primary" />
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
                   <span>Chittagong, Bangladesh</span>
                 </div>
                 <div className="flex items-center gap-2 text-muted-foreground">
-                  <GraduationCap className="w-5 h-5 text-primary" />
+                  <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
                   <span>B.Sc. in CSE</span>
                 </div>
               </div>
@@ -128,10 +128,10 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="glass-card p-8 relative">
-                <div className="absolute -top-4 -right-4 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
+              <div className="glass-card p-6 sm:p-8 relative overflow-hidden">
+                <div className="absolute -top-4 -right-4 w-24 h-24 sm:w-32 sm:h-32 bg-primary/20 rounded-full blur-2xl pointer-events-none" />
                 
-                <div className="relative w-48 h-48 mx-auto mb-6">
+                <div className="relative w-40 h-40 sm:w-48 sm:h-48 mx-auto mb-6">
                   <div className="w-full h-full rounded-full overflow-hidden ring-4 ring-primary/20 ring-offset-4 ring-offset-background">
                     <img 
                       src={profilePhoto} 
@@ -145,22 +145,22 @@ const About = () => {
                 </div>
 
                 <div className="text-center mb-6">
-                  <h3 className="font-heading text-2xl font-bold text-foreground mb-2">
+                  <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground mb-2">
                     Available for Freelance
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm sm:text-base text-muted-foreground">
                     Open to exciting projects and collaborations
                   </p>
                 </div>
 
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50">
-                    <Code2 className="w-5 h-5 text-primary" />
-                    <span className="text-muted-foreground">Laravel • Vue.js • PHP • MySQL</span>
+                  <div className="flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-lg bg-secondary/50">
+                    <Code2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
+                    <span className="text-xs sm:text-sm text-muted-foreground break-words">Laravel • Vue.js • PHP • MySQL</span>
                   </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50">
-                    <Calendar className="w-5 h-5 text-primary" />
-                    <span className="text-muted-foreground">2+ Years of Experience</span>
+                  <div className="flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-lg bg-secondary/50">
+                    <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
+                    <span className="text-xs sm:text-sm text-muted-foreground">2+ Years of Experience</span>
                   </div>
                 </div>
               </div>
@@ -226,7 +226,7 @@ const About = () => {
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
                 Technical Expertise
               </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-8">
                 I specialize in building full-stack web applications using Laravel and modern frontend technologies. 
                 My focus is on creating scalable, maintainable, and user-friendly solutions.
               </p>
@@ -330,14 +330,14 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-12 text-center relative overflow-hidden"
+            className="glass-card p-6 sm:p-8 md:p-12 text-center relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10" />
             <div className="relative">
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Let's Work Together
               </h2>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
+              <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto mb-8">
                 I'm always excited to take on new projects and challenges. Whether you need a web application, 
                 want to collaborate, or just want to say hi, feel free to reach out!
               </p>

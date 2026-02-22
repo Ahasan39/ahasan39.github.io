@@ -244,7 +244,7 @@ const Services = () => {
           <div className="space-y-8">
             {services.map((service, index) => (
               <AnimatedSection key={service.id} delay={index * 0.1}>
-                <div className="glass-card p-6 md:p-8">
+                <div id={service.id} className="glass-card p-6 md:p-8 scroll-mt-24">
                   <div className="grid lg:grid-cols-3 gap-6">
                     {/* Service Info */}
                     <div className="lg:col-span-2">

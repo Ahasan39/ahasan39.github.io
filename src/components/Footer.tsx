@@ -18,7 +18,12 @@ const navLinks = [
   { name: "Contact", href: "/contact" },
 ];
 
-const services = ["Web Development", "API Development", "Database Design", "UI/UX Implementation"];
+const services = [
+  { name: "Web Development", id: "web-development" },
+  { name: "API Development", id: "api-development" },
+  { name: "Database Design", id: "database-design" },
+  { name: "UI/UX Implementation", id: "ui-ux" },
+];
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -94,23 +99,13 @@ export const Footer = () => {
                 </h4>
                 <ul className="space-y-1.5 sm:space-y-2.5">
                   {services.map((service) => (
-                    <li key={service}>
+                    <li key={service.id}>
                       <Link
-                        to="/#services"
+                        to={`/services#${service.id}`}
                         className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5 sm:gap-2 group"
-                        onClick={(e) => {
-                          // If already on home page, prevent default and scroll
-                          if (window.location.pathname === '/') {
-                            e.preventDefault();
-                            const element = document.getElementById('services');
-                            if (element) {
-                              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            }
-                          }
-                        }}
                       >
                         <span className="w-1 h-1 rounded-full bg-primary flex-shrink-0 group-hover:scale-150 transition-transform" />
-                        {service}
+                        {service.name}
                       </Link>
                     </li>
                   ))}

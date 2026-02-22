@@ -8,6 +8,7 @@ import { lazy, Suspense } from "react";
 import Index from "./pages/Index";
 import { WhatsAppButton } from "./components/WhatsAppButton";
 import { BackToTop } from "./components/BackToTop";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 // Lazy load non-critical pages
 const About = lazy(() => import("./pages/About"));
@@ -64,6 +65,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <ScrollToTop />
         <AnimatedRoutes />
         <WhatsAppButton />
         <BackToTop />

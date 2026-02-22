@@ -95,13 +95,23 @@ export const Footer = () => {
                 <ul className="space-y-1.5 sm:space-y-2.5">
                   {services.map((service) => (
                     <li key={service}>
-                      <a
-                        href="#services"
+                      <Link
+                        to="/#services"
                         className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5 sm:gap-2 group"
+                        onClick={(e) => {
+                          // If already on home page, prevent default and scroll
+                          if (window.location.pathname === '/') {
+                            e.preventDefault();
+                            const element = document.getElementById('services');
+                            if (element) {
+                              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                          }
+                        }}
                       >
                         <span className="w-1 h-1 rounded-full bg-primary flex-shrink-0 group-hover:scale-150 transition-transform" />
                         {service}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

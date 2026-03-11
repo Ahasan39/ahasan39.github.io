@@ -696,7 +696,6 @@ This project is open source and available under the [MIT License](LICENSE).
 - **[Vite](https://vitejs.dev/)** - Next-generation frontend tooling
 - **[React](https://react.dev/)** - JavaScript library for building UIs
 - **[TypeScript](https://www.typescriptlang.org/)** - JavaScript with syntax for types
-- **[Lovable](https://lovable.dev/)** - AI-powered development platform
 
 ---
 

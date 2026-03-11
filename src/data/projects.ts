@@ -82,7 +82,7 @@ export const projects: Project[] = [
       { title: 'Product Catalog', description: 'Product listing with filters and search functionality', image: ecommerceImg },
       { title: 'Shopping Cart', description: 'Cart page with quantity controls and price summary', image: ecommerceImg },
     ],
-    demo: '#',
+    demo: 'https://khadyobitan.com/',
     github: '#',
     featured: true,
     category: 'Web Application',

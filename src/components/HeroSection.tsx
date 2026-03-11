@@ -41,7 +41,7 @@ export const HeroSection = () => {
                   src={profilePhotoWebP}
                   alt="Amamul Ahasan"
                   className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-                  fetchPriority="high"
+                  fetchpriority="high"
                   loading="eager"
                   decoding="async"
                   width={128}

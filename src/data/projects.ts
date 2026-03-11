@@ -69,104 +69,71 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'laravel-ecommerce-platform',
-    title: 'Laravel E-commerce Platform',
-    description: 'A full-featured e-commerce solution with user authentication, shopping cart, order management, and a comprehensive admin dashboard. Built with Laravel and modern UI principles.',
-    longDescription: 'This comprehensive e-commerce platform demonstrates my expertise in building scalable, secure, and user-friendly online shopping solutions. The application features a complete shopping experience from product browsing to checkout, along with a powerful admin dashboard for managing products, orders, and customers.',
-    tech: ['Laravel', 'PHP', 'MySQL', 'Bootstrap', 'JavaScript'],
-    features: ['Authentication', 'Cart System', 'Order Management', 'Admin Dashboard', 'Responsive Design', 'Payment Integration', 'Inventory Management', 'Email Notifications'],
+    title: 'Laravel React E-commerce Platform',
+    description: 'A full-stack e-commerce platform built with Laravel 11 and React 19 + Inertia.js. Designed for organic stores with bilingual support (English & বাংলা).',
+    longDescription: 'Khadyobitan is a production-ready e-commerce platform that combines a Laravel 11 backend with a modern React 19 SPA frontend via Inertia.js. It features a seamless bridge where React components receive data directly from Laravel controllers, eliminating the need for separate REST API calls for the storefront.',
+    tech: ['Laravel 11', 'React 19', 'Inertia.js', 'TypeScript', 'Tailwind CSS 4', 'MySQL', 'JWT', 'Zustand'],
+    features: ['Inertia.js SPA', 'Bilingual (EN/BN)', '3-Level Categories', 'Pathao Integration', 'ShurjoPay & bKash', 'Admin Dashboard', 'Inventory Tracking', 'Modular Design'],
     image: ecommerceImg,
     screenshots: [
-      { title: 'Public Homepage', description: 'Landing page with featured products and promotions', image: ecomHomepage },
-      { title: 'User Dashboard', description: 'Customer dashboard with order history and account settings', image: ecomUserDashboard },
-      { title: 'Admin Dashboard', description: 'Admin panel with sales analytics and order management', image: ecomAdminDashboard },
-      { title: 'Product Catalog', description: 'Product listing with filters and search functionality', image: ecommerceImg },
-      { title: 'Shopping Cart', description: 'Cart page with quantity controls and price summary', image: ecommerceImg },
+      { title: 'Public Homepage', description: 'React-based landing page with bilingual support', image: ecomHomepage },
+      { title: 'User Dashboard', description: 'Customer dashboard for orders and profile management', image: ecomUserDashboard },
+      { title: 'Admin Dashboard', description: 'Blade-based admin panel with real-time analytics', image: ecomAdminDashboard },
+      { title: 'Product Catalog', description: '3-level category hierarchy with advanced filtering', image: ecommerceImg },
+      { title: 'Order Management', description: 'Complete lifecycle tracking and Pathao integration', image: ecommerceImg },
     ],
     demo: 'https://khadyobitan.com/',
-    github: '#',
+    github: 'https://github.com/Ahasan39/khadyobitan_newversion',
     featured: true,
-    category: 'Web Application',
+    category: 'Full-Stack Application',
     sections: [
       {
-        title: 'Project Overview',
-        content: 'The Laravel E-commerce Platform is a full-stack web application designed to provide a seamless online shopping experience. Built with Laravel 10 and following MVC architecture, it incorporates best practices for security, performance, and maintainability. The platform supports multiple product categories, user reviews, wishlists, and a comprehensive order tracking system.'
+        title: 'Architecture & Tech Stack',
+        content: 'This project utilizes the "Inertia.js Bridge" - meaning React components receive data directly from Laravel controllers without needing a separate REST API for the storefront. It features a modular design using Laravel Modules (nwidart/laravel-modules) and a robust event-driven architecture for order tracking.'
       },
       {
-        title: 'Authentication System',
-        content: 'Implemented a robust authentication system using Laravel\'s built-in authentication scaffolding with custom modifications for role-based access control. Users can register, login, and manage their profiles while admins have access to additional dashboard features.',
-        code: `// User Authentication Controller
-public function login(Request $request)
+        title: 'Backend Features',
+        content: 'Built with Laravel 11, the backend handles complex logic including role-based access control (Spatie), JWT for API auth, and event-driven notifications via Email and SMS. It also includes Pathao courier API and ShurjoPay gateway integration.',
+        code: `// Inertia Rendering Example
+public function index()
 {
-    $credentials = $request->validate([
-        'email' => 'required|email',
-        'password' => 'required|min:8',
-    ]);
-
-    if (Auth::attempt($credentials, $request->remember)) {
-        $request->session()->regenerate();
-        
-        if (Auth::user()->isAdmin()) {
-            return redirect()->intended('admin/dashboard');
-        }
-        
-        return redirect()->intended('dashboard');
-    }
-
-    return back()->withErrors([
-        'email' => 'Invalid credentials provided.',
+    return Inertia::render('Storefront/Home', [
+        'products' => Product::featured()->get(),
+        'categories' => Category::tree()->get(),
+        'bilingual' => true
     ]);
 }`,
         codeLanguage: 'php'
       },
       {
-        title: 'Shopping Cart Implementation',
-        content: 'The cart system uses session-based storage for guests and database storage for authenticated users. It supports quantity updates, item removal, and automatic price calculations with tax and shipping.',
-        code: `// Cart Service
-class CartService
-{
-    public function addToCart(Product $product, int $quantity = 1): void
-    {
-        $cart = $this->getCart();
-        
-        if (isset($cart[$product->id])) {
-            $cart[$product->id]['quantity'] += $quantity;
-        } else {
-            $cart[$product->id] = [
-                'product_id' => $product->id,
-                'name' => $product->name,
-                'price' => $product->price,
-                'quantity' => $quantity,
-                'image' => $product->image_url,
-            ];
-        }
-        
-        $this->saveCart($cart);
-    }
-    
-    public function getTotal(): float
-    {
-        return collect($this->getCart())
-            ->sum(fn($item) => $item['price'] * $item['quantity']);
-    }
-}`,
-        codeLanguage: 'php'
+        title: 'Frontend Mastery',
+        content: 'The frontend is built on React 19 and TypeScript, featuring 24+ page components. State management is handled by Zustand (for the cart) and React Query (for server state). Styling is powered by Tailwind CSS 4 and Radix UI primitives.',
+        code: `// Zustand Cart Store
+export const useCartStore = create((set) => ({
+  cart: [],
+  addItem: (item) => set((state) => ({ 
+    cart: [...state.cart, item] 
+  })),
+  clearCart: () => set({ cart: [] })
+}));`,
+        codeLanguage: 'typescript'
       },
       {
-        title: 'Admin Dashboard',
-        content: 'A comprehensive admin panel built with Bootstrap and Chart.js for analytics. Features include product management, order processing, customer management, and sales reports with visual charts.'
+        title: 'Admin Panel (Blade-based)',
+        content: 'A comprehensive administration suite featuring CRUD for products/variants, 3-level category management, automated barcode generation, fraud checking, and detailed sales reports with Recharts integration.'
       }
     ],
     challenges: [
-      'Implementing real-time inventory updates to prevent overselling',
-      'Designing a scalable database schema for product variants',
-      'Ensuring secure payment processing with proper error handling',
-      'Optimizing database queries for product listings with filters'
+      'Bridging Laravel and React 19 seamlessly using Inertia.js',
+      'Implementing a complex 3-level category hierarchy with efficient queries',
+      'Integrating multiple localized payment gateways (ShurjoPay, bKash)',
+      'Developing a custom Pathao courier API integration for automated shipping'
     ],
     solutions: [
-      'Used database transactions and row locking for inventory management',
-      'Implemented EAV (Entity-Attribute-Value) pattern for flexible product attributes',
-      'Integrated Stripe with webhook handling and comprehensive logging',
-      'Applied eager loading and query caching with Redis'
+      'Used Inertia.js to maintain SPA benefits while utilizing Laravel routing',
+      'Implemented recursive Eloquent relationships for category management',
+      'Built a custom payment service layer to handle various gateway APIs',
+      'Created a background queue system for reliable courier API communication'
     ]
   },
   {

@@ -6,7 +6,7 @@ import landingImg from '@/assets/project-landing.jpg';
 import businessImg from '@/assets/project-business.jpg';
 
 // E-commerce screenshots
-import ecomHomepage from '@/assets/screenshots/ecom-homepage.jpg';
+import ecomHomepage from '@/assets/screenshots/khadyobitan-live.png';
 import ecomUserDashboard from '@/assets/screenshots/ecom-user-dashboard.jpg';
 import ecomAdminDashboard from '@/assets/screenshots/ecom-admin-dashboard.jpg';
 
@@ -74,9 +74,9 @@ export const projects: Project[] = [
     longDescription: 'Khadyobitan is a production-ready e-commerce platform that combines a Laravel 11 backend with a modern React 19 SPA frontend via Inertia.js. It features a seamless bridge where React components receive data directly from Laravel controllers, eliminating the need for separate REST API calls for the storefront.',
     tech: ['Laravel 11', 'React 19', 'Inertia.js', 'TypeScript', 'Tailwind CSS 4', 'MySQL', 'JWT', 'Zustand'],
     features: ['Inertia.js SPA', 'Bilingual (EN/BN)', '3-Level Categories', 'Pathao Integration', 'ShurjoPay & bKash', 'Admin Dashboard', 'Incomplete Order System', 'Duplicate Order Prevention', 'Fraud Detection System'],
-    image: ecommerceImg,
+    image: ecomHomepage,
     screenshots: [
-      { title: 'Public Homepage', description: 'React-based landing page with bilingual support', image: ecomHomepage },
+      { title: 'Public Homepage', description: 'Live React-based landing page with bilingual support', image: ecomHomepage },
       { title: 'User Dashboard', description: 'Customer dashboard for orders and profile management', image: ecomUserDashboard },
       { title: 'Admin Dashboard', description: 'Blade-based admin panel with real-time analytics', image: ecomAdminDashboard },
       { title: 'Product Catalog', description: '3-level category hierarchy with advanced filtering', image: ecommerceImg },

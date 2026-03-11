@@ -73,14 +73,14 @@ export const projects: Project[] = [
     description: 'A full-stack e-commerce platform built with Laravel 11 and React 19 + Inertia.js. Designed for organic stores with bilingual support (English & বাংলা).',
     longDescription: 'Khadyobitan is a production-ready e-commerce platform that combines a Laravel 11 backend with a modern React 19 SPA frontend via Inertia.js. It features a seamless bridge where React components receive data directly from Laravel controllers, eliminating the need for separate REST API calls for the storefront.',
     tech: ['Laravel 11', 'React 19', 'Inertia.js', 'TypeScript', 'Tailwind CSS 4', 'MySQL', 'JWT', 'Zustand'],
-    features: ['Inertia.js SPA', 'Bilingual (EN/BN)', '3-Level Categories', 'Pathao Integration', 'ShurjoPay & bKash', 'Admin Dashboard', 'Inventory Tracking', 'Modular Design'],
+    features: ['Inertia.js SPA', 'Bilingual (EN/BN)', '3-Level Categories', 'Pathao Integration', 'ShurjoPay & bKash', 'Admin Dashboard', 'Incomplete Order System', 'Duplicate Order Prevention', 'Fraud Detection System'],
     image: ecommerceImg,
     screenshots: [
       { title: 'Public Homepage', description: 'React-based landing page with bilingual support', image: ecomHomepage },
       { title: 'User Dashboard', description: 'Customer dashboard for orders and profile management', image: ecomUserDashboard },
       { title: 'Admin Dashboard', description: 'Blade-based admin panel with real-time analytics', image: ecomAdminDashboard },
       { title: 'Product Catalog', description: '3-level category hierarchy with advanced filtering', image: ecommerceImg },
-      { title: 'Order Management', description: 'Complete lifecycle tracking and Pathao integration', image: ecommerceImg },
+      { title: 'Order Management', description: 'Complete lifecycle tracking with Fraud & Duplicate check', image: ecommerceImg },
     ],
     demo: 'https://khadyobitan.com/',
     github: 'https://github.com/Ahasan39/khadyobitan_newversion',
@@ -90,6 +90,23 @@ export const projects: Project[] = [
       {
         title: 'Architecture & Tech Stack',
         content: 'This project utilizes the "Inertia.js Bridge" - meaning React components receive data directly from Laravel controllers without needing a separate REST API for the storefront. It features a modular design using Laravel Modules (nwidart/laravel-modules) and a robust event-driven architecture for order tracking.'
+      },
+      {
+        title: 'Advanced Order Systems',
+        content: 'Implemented enterprise-grade order handling including: \n\n• **Duplicate Order Handling**: Prevents multiple orders with the same data within a timeframe.\n• **Incomplete Order System**: Captures leads from abandoned checkouts (CheckoutLead) to recover sales.\n• **Fraud Checking System**: Analyzes IP, customer history, and order patterns to flag suspicious transactions.',
+        code: `// Fraud Checker Logic
+public function checkPotentialFraud(Order $order)
+{
+    $isSuspect = IPBlock::where('ip', $order->customer_ip)->exists() 
+               || $order->hasIrregularPattern()
+               || $this->checkDuplicateOrder($order);
+               
+    if ($isSuspect) {
+        $order->update(['status' => 'held_for_review']);
+        Log::warning("Fraud Suspected for Order #{$order->id}");
+    }
+}`,
+        codeLanguage: 'php'
       },
       {
         title: 'Backend Features',
@@ -120,19 +137,19 @@ export const useCartStore = create((set) => ({
       },
       {
         title: 'Admin Panel (Blade-based)',
-        content: 'A comprehensive administration suite featuring CRUD for products/variants, 3-level category management, automated barcode generation, fraud checking, and detailed sales reports with Recharts integration.'
+        content: 'A comprehensive administration suite featuring CRUD for products/variants, 3-level category management, automated barcode generation, incomplete order management, fraud checking, and detailed sales reports with Recharts integration.'
       }
     ],
     challenges: [
       'Bridging Laravel and React 19 seamlessly using Inertia.js',
       'Implementing a complex 3-level category hierarchy with efficient queries',
-      'Integrating multiple localized payment gateways (ShurjoPay, bKash)',
+      'Implementing a robust system to detect and prevent duplicate orders and fraud',
       'Developing a custom Pathao courier API integration for automated shipping'
     ],
     solutions: [
       'Used Inertia.js to maintain SPA benefits while utilizing Laravel routing',
       'Implemented recursive Eloquent relationships for category management',
-      'Built a custom payment service layer to handle various gateway APIs',
+      'Built a custom middleware and service layer for order fraud validation',
       'Created a background queue system for reliable courier API communication'
     ]
   },

@@ -83,6 +83,14 @@ const FeaturedProjectCard = ({ project, index }: { project: typeof featuredProje
                 <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-1.5 sm:ml-2" />
               </Link>
             </Button>
+            {project.demo && project.demo !== '#' && (
+              <Button variant="heroOutline" size="sm" className="sm:size-default" asChild>
+                <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                  Live Demo
+                  <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-1.5 sm:ml-2" />
+                </a>
+              </Button>
+            )}
             <Button variant="outline" size="sm" className="sm:size-default" asChild>
               <a href={project.github}>
                 <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
